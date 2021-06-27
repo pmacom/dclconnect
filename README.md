@@ -12,7 +12,7 @@ npm install dclconnect
 
 2.) Add a new `path` that points to the dclconnect package. Also be sure to add the `include` path. You do not need to alter anything else in this file.
 
-```json
+```
 {
   "compilerOptions": {
 	...
@@ -63,8 +63,8 @@ You can set the color (and emission) of the stripes/surface with these methods. 
 
 
 ```
-bh.setStripeColor(new Color3(1,1,0)
-bh.setSurfaceColor(new Color3(0,10,1)
+bh.setStripeColor(new Color3(1,1,0))
+bh.setSurfaceColor(new Color3(0,10,1))
 ```
 
 ### BoxHighlight.(setPosition/setScale)
