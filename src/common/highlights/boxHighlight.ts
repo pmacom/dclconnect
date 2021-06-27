@@ -1,6 +1,6 @@
 import { InteractibleEntity } from "src/common/entities/interactible"
 
-const boxHighlightTexture = new Texture("images/dclconnect/boxHighlight.png")
+const boxHighlightTexture = new Texture("https://raw.githubusercontent.com/pmacom/dclconnect/master/images/boxHighlight.png")
 
 /**
  * Object with settings for UV PlaneShape animations
