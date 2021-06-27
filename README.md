@@ -87,3 +87,9 @@ It's not encouraged to rotate a BoxHighlight for a few reasons. In short, this i
 ```
 bh.setDirection("top")
 ```
+
+
+## DynamicImage
+
+
+## DynamicImageBar
