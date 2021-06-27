@@ -18,14 +18,14 @@ npm install dclconnect
 	...
     "paths": {
       "dclconnect": [
-        "node_modules/dclconnect/dist/index.d.ts"
+        "./node_modules/dclconnect/dist/index.d.ts"
       ]
     },
 	...
   },
   "include": [
     "src/**/*.ts",
-    "node_modules/dclconnect/dist/index.js"
+    "./node_modules/dclconnect/dist/index.js"
   ],
   ...
 }

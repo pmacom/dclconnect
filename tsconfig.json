@@ -3,6 +3,9 @@
 		"src",
 		"node_modules/@dcl/ui-scene-utils/dist/index.js"
 	],
+	"exclude": [
+		"dist"
+	],
 	"compilerOptions": {
 	  "module": "ESNext",
 	  "baseUrl": ".",
