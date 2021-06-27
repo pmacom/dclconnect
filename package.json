@@ -1,0 +1,53 @@
+{
+  "name": "@dcl/ecs-scene-utils",
+  "version": "0.0.0-development",
+  "description": "A collection of helpers to make it easier to build a Decentraland scene using the SDK.",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "decentralandLibrary": {},
+  "scripts": {
+    "build": "rollup -c --environment BUILD:production",
+    "make": "cp -r src dist && cp package.json dist/package.json && cp LICENSE dist/LICENSE && cp README.md dist/README.md",
+    "makeclean": "rm -rf dist && npm run make",
+    "link": "npm link && rollup --watch -c --environment BUILD:production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decentraland/decentraland-ecs-utils.git"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "singleQuote": true,
+    "semi": false
+  },
+  "keywords": [],
+  "author": "Decentraland",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/decentraland/decentraland-ecs-utils/issues"
+  },
+  "homepage": "https://github.com/decentraland/decentraland-ecs-utils#readme",
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.13.2",
+    "decentraland-ecs": "^6.6.4",
+    "glob": "^7.1.6",
+    "prettier": "^1.19.1",
+    "rollup": "^2.35.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "typescript": "^4.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "tsdoc-metadata.json"
+  ],
+  "peerDependencies": {
+    "colyseus.js": "^0.14.12",
+    "decentraland-ecs": "^6.6.4"
+  }
+}
