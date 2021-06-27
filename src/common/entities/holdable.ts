@@ -7,16 +7,24 @@ import { InteractibleEntity, isInteractible } from "./interactible"
 
 let highlightDistance = 3
 
+/**
+ * @public
+ */
 export interface HoldableMetaData {
     [key: string]: any
 } 
+
+/**
+ * Creates an Entity that can be picked up, put down and used on an Interactible Entity
+ * @public
+ */
 export abstract class HoldableEntity extends Entity {
     public abstract holdingPosition: Vector3
     public abstract holdingRotation: Quaternion
     public readonly class: string = 'HoldableEntity'
     public readonly interactions: Array<string> = []
     public abstract spriteIndex: number
-    public abstract GUIName: string
+    // public abstract GUIName: string
     public abstract metadata: HoldableMetaData
 
     constructor() {

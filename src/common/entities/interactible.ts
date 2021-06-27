@@ -1,6 +1,9 @@
 import { BoxHighlight } from "../highlights/boxHighlight"
 import { state } from "src/state"
 
+/**
+ * @public
+ */
 export abstract class InteractibleEntity extends Entity {
     public readonly class: string = 'InteractibleEntity'
     public readonly interactions: Array<string> = []
