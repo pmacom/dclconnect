@@ -5,6 +5,7 @@
 	],
 	"compilerOptions": {
 	  "module": "ESNext",
+	  "baseUrl": ".",
 	  "paths": {
 		"colyseus.js": [
 		  "node_modules/colyseus.js/dist/colyseus.d.ts",

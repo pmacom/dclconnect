@@ -1,7 +1,7 @@
 {
-  "name": "@dcl/ecs-scene-utils",
+  "name": "dclconnect",
   "version": "0.0.0-development",
-  "description": "A collection of helpers to make it easier to build a Decentraland scene using the SDK.",
+  "description": "A collection of utilities and helpers for building in decentraland and connecting to dclconnect services",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "decentralandLibrary": {},
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/decentraland/decentraland-ecs-utils.git"
+    "url": "git+https://github.com/pmacom/dclconnect.git"
   },
   "prettier": {
     "printWidth": 80,
@@ -24,9 +24,9 @@
   "author": "Decentraland",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/decentraland/decentraland-ecs-utils/issues"
+    "url": "https://github.com/pmacom/dclconnect/issues"
   },
-  "homepage": "https://github.com/decentraland/decentraland-ecs-utils#readme",
+  "homepage": "https://github.com/pmacom/dclconnect",
   "devDependencies": {
     "@microsoft/api-extractor": "^7.13.2",
     "decentraland-ecs": "^6.6.4",
@@ -48,6 +48,7 @@
   ],
   "peerDependencies": {
     "colyseus.js": "^0.14.12",
-    "decentraland-ecs": "^6.6.4"
+    "decentraland-ecs": "^6.6.4",
+    "tslib": "^2.0.1"
   }
 }

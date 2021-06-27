@@ -67,6 +67,7 @@ export type ISide = {
 
 /**
  * Precalculated UV settings for each potential side rotation and effect
+ * @public
  */
 const uvs: IUVs = {
     1: [ 0.6,0.4,0.9,0.4,0.9,0.1,0.6,0.01,0.6,0.4,0.9,0.4,0.9,0.1,0.6,0.01 ],   // invisible
@@ -87,9 +88,9 @@ export class BoxHighlightAnimation {
 
 /**
  * Helper function for creating the cube by offsetting each side's position and rotation
- * @param pAxis position axis offset
- * @param rAxis rotation axis
- * @param negate should position go in the opposite direction
+ * @param pAxis - position axis offset
+ * @param rAxis - rotation axis
+ * @param negate - should position go in the opposite direction
  * @returns 
  */
 const getTransform = (pAxis: string, rAxis: string, negate: boolean = false) : Transform => {
@@ -110,6 +111,7 @@ const getTransform = (pAxis: string, rAxis: string, negate: boolean = false) : T
 /**
  * Creates an animated cube to highlight something in DCL
  * it can be rotated to point in a predetermined direction
+ * @public
  */
 export class BoxHighlight extends Entity {
     private timer: number = 0
@@ -271,9 +273,9 @@ export class BoxHighlight extends Entity {
 
     /**
      * Scales the boxHighlight's dimensions
-     * @param x scale on x axis
-     * @param y scale on y axis
-     * @param z scale on z axis
+     * @param x - scale on x axis
+     * @param y - scale on y axis
+     * @param z - scale on z axis
      */
     setScale(x: number, y: number, z: number) {
       this.getComponent(Transform).scale.set(x, y, z)
@@ -281,9 +283,9 @@ export class BoxHighlight extends Entity {
 
     /**
      * Repositions the boxHighlight
-     * @param x x position
-     * @param y y position
-     * @param z z position
+     * @param x - x position
+     * @param y - y position
+     * @param z - z position
      */
     setPosition(x: number, y: number, z: number) {
       this.getComponent(Transform).position.set(x, y, z)
@@ -291,7 +293,7 @@ export class BoxHighlight extends Entity {
 
     /**
      * Sets the direction this effect should be facing
-     * @param dir string: "top" | "bottom" | "north" | "south" | "east" | "west"
+     * @param dir - string: "top" | "bottom" | "north" | "south" | "east" | "west"
      */
     setDirection(dir: string){
         this.dir = dir
@@ -300,7 +302,7 @@ export class BoxHighlight extends Entity {
 
     /**
      * Sets the color of the stripes that encircle the boxHighlight
-     * @param color Color3 object, set it's rgb values from 0 to 1 for normal, or 1 to 10 for a nice glowing effect
+     * @param color - Color3 object, set it's rgb values from 0 to 1 for normal, or 1 to 10 for a nice glowing effect
      */
     setStripeColor(color: Color3){
         this.stripeMaterial.emissiveColor = color
@@ -308,7 +310,7 @@ export class BoxHighlight extends Entity {
 
     /**
      * Sets the color of the surface that the boxHighlight is targeted to
-     * @param color Color3 object, set it's rgb values from 0 to 1 for normal, or 1 to 10 for a nice glowing effect
+     * @param color - Color3 object, set it's rgb values from 0 to 1 for normal, or 1 to 10 for a nice glowing effect
      */
     setSurfaceColor(color: Color3){
         this.surfaceMaterial.emissiveColor = color
@@ -332,7 +334,7 @@ export class BoxHighlight extends Entity {
 
     /**
      * Updates the UV map to make a nice stripe animation effect
-     * @param dt deltatime
+     * @param dt - deltatime
      */
     public updateUV(dt: number) {
       this.timer = this.timer >= this.duration ? 0 : this.timer + dt
@@ -360,7 +362,7 @@ const lerpUVs = (
     Scalar.Lerp(uvs[6], uvs[6]+.5, lerpTime),
     Scalar.Lerp(uvs[7], uvs[7], lerpTime),
   ]
-  return [ ...points, ...points]
+  return points.concat(points)
 }
 
 const BoxHighlights = engine.getComponentGroup(BoxHighlightAnimation)
@@ -374,7 +376,9 @@ export class AnimateBoxHighlights implements ISystem {
 }
 engine.addSystem(new AnimateBoxHighlights())
 
-
+/**
+ * @public
+ */
 export const GlobalBoxHighlight = new BoxHighlight(
     new Vector3(8,0.5,8),
     new Vector3(1,1,1),
