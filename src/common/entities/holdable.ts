@@ -1,5 +1,6 @@
 // import { InspectorImage } from "src/dclconnect-gui/inspector"
 // import { DynamicImage } from "src/dclconnect/gui/dynamicImage"
+import { DynamicImage } from "src/gui/dynamicImage"
 import { state } from "../../state"
 import { InteractibleEntity, isInteractible } from "./interactible"
 
@@ -23,8 +24,8 @@ export abstract class HoldableEntity extends Entity {
     public abstract holdingRotation: Quaternion
     public readonly class: string = 'HoldableEntity'
     public readonly interactions: Array<string> = []
-    public abstract spriteIndex: number
-    // public abstract GUIName: string
+    public abstract spriteIndex?: number
+    public abstract GUIName?: string
     public abstract metadata: HoldableMetaData
 
     constructor() {

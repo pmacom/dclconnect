@@ -1,3 +1,7 @@
+export { GlobalCanvas } from "./gui/canvas"
+
+export { Wait } from "./common/utils/wait"
+
 export {
     DynamicImage,
     DynamicAnimation,

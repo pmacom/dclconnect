@@ -1,1 +1,4 @@
-export const canvas = new UICanvas()
+/**
+ * @public
+ */
+export const GlobalCanvas = new UICanvas()
