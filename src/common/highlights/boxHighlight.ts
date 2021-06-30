@@ -2,6 +2,7 @@ import { InteractibleEntity } from "src/common/entities/interactible"
 
 const boxHighlightTexture = new Texture("https://raw.githubusercontent.com/pmacom/dclconnect/master/images/boxHighlight.png")
 
+
 /**
  * Object with settings for UV PlaneShape animations
  * @public
@@ -136,17 +137,19 @@ export class BoxHighlight extends Entity {
         public position: Vector3,
         public scale: Vector3,
         public dir: string = "top",
-        public visible: boolean = true
+        public visible: boolean = true,
+        public texture?: Texture
     ) {
         super()
+        let t = texture ? texture : boxHighlightTexture
 
         /**
          * Material settings for the stripes animation
          */
         this.stripeMaterial.roughness = 1
         this.stripeMaterial.emissiveColor = new Color3(0,.5,1)
-        this.stripeMaterial.albedoTexture = boxHighlightTexture
-        this.stripeMaterial.alphaTexture = boxHighlightTexture
+        this.stripeMaterial.albedoTexture = t
+        this.stripeMaterial.alphaTexture = t
         this.stripeMaterial.castShadows = false
 
         /**
@@ -154,8 +157,8 @@ export class BoxHighlight extends Entity {
          */
         this.surfaceMaterial.roughness = 1
         this.surfaceMaterial.emissiveColor = new Color3(10,0,0)
-        this.surfaceMaterial.albedoTexture = boxHighlightTexture
-        this.surfaceMaterial.alphaTexture = boxHighlightTexture
+        this.surfaceMaterial.albedoTexture = t
+        this.surfaceMaterial.alphaTexture = t
         this.surfaceMaterial.castShadows = false
 
         this.sides = [
@@ -298,6 +301,17 @@ export class BoxHighlight extends Entity {
     setDirection(dir: string){
         this.dir = dir
         this.setSides()
+    }
+
+    /**
+     * Sets a new texture to the boxHighlight entity
+     * @param texture - Texture object to apply to the boxHighlight materials
+     */
+    setTexture(texture: Texture){
+        this.stripeMaterial.albedoTexture = texture
+        this.stripeMaterial.alphaTexture = texture
+        this.surfaceMaterial.albedoTexture = texture
+        this.surfaceMaterial.alphaTexture = texture
     }
 
     /**
