@@ -117,3 +117,55 @@ const sf2.setText("Event Over!", true)
 
 
 ## DynamicImageBar
+
+
+## AudioControlBar
+
+[![Experiment #6.1 - BoxHighlight](https://i.ytimg.com/vi/a4zhezccygc/hqdefault.jpg)](https://youtu.be/a4zhezccygc)
+
+### AudioStreams
+
+Please review the official `AudioStreams` docs for setting up your audio streams properly.
+
+```ts
+// For AudioStreams
+const audioControlBar = new AudioControlBar(new AudioStream(
+    "https://ice1.somafm.com/groovesalad-128-mp3"
+))
+```
+
+### VideoStreams
+
+Please review the official `VideoTexture` docs for setting up a video screen properly.
+
+```ts
+// For VideoTextures
+const vclip = new VideoClip(
+    "https://Somedomain/Video.m3u8"
+)
+const myVideoTexture = new VideoTexture(vclip)
+const audioControlVideoBar = new AudioControlBar(myVideoTexture)
+```
+
+### Placement
+
+```ts
+// Once you have created an AudioControlBar you can adjust
+// it's placement on the left hand side of the screen
+audioControlVideoBar.setOffset(34)
+```
+
+### Other Features/Settings
+
+```ts
+// Mute and Unmute the audio
+audioControlVideoBar.mute()
+audioControlVideoBar.unmute()
+
+// Set the volume (0-100)
+audioControlVideoBar.setVolume(50)
+
+// Set the Maximum Volume (Careful with this. Some videos/streams are LOUD.
+// So this is an audio dampener of sorts. Default: .2
+audioControlVideoBar.setMaxVolume(1)
+```
