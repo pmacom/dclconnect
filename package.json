@@ -49,7 +49,7 @@
   "peerDependencies": {
     "colyseus.js": "^0.14.12",
     "decentraland-ecs": "^6.6.4",
-    "tslib": "^2.0.1"
+    "tslib": "^2.3.0"
   },
   "dependencies": {
     "@dcl/ecs-scene-utils": "^1.7.2"
