@@ -1,7 +1,10 @@
 export { GlobalCanvas } from "./gui/canvas"
 
+// Helpers
 export { Wait } from "./common/utils/wait"
+export { TriggerCollider } from './common/trigger/triggerCollider'
 
+// Dynamic GUI elements
 export {
     DynamicImage,
     DynamicAnimation,
@@ -10,12 +13,10 @@ export {
     IDynamicAnimationNumber,
     IDynamicAnimationVector2,
 } from "./gui/dynamicImage"
-
 export {
     DynamicImageBar,
     DynamicBarOrientation,
 } from "./gui/dynamicImageBar"
-
 export {
     DynamicText,
     DynamicTextAnimation,
@@ -25,14 +26,18 @@ export {
     IDynamicTextAnimationVector2,
 } from "./gui/dynamicText"
 
+// Usables
+export { InteractibleEntity } from "./common/entities/usable/interactible"
 export {
     HoldableEntity,
     HoldableMetaData,
-} from "./common/entities/holdable"
+} from "./common/entities/usable/holdable"
 
-export { InteractibleEntity } from "./common/entities/interactible"
-
+// BoxHighlight
 export {
     BoxHighlight,
     GlobalBoxHighlight,
 } from "./common/highlights/boxHighlight"
+
+// SplitFlap
+export { SplitFlap } from "./common/entities/splitflap/core/splitFlap"

@@ -1,7 +1,6 @@
 import * as utils from '@dcl/ecs-scene-utils'
-import { BoxHighlight } from 'src/dclconnect/common/highlight/boxHighlight'
+import { BoxHighlight } from '../highlights/boxHighlight'
 import { TriggerLayers } from './triggerLayers'
-
 export interface ITriggerZoneInput {
     position: Vector3
     scale: Vector3
@@ -37,7 +36,10 @@ export class TriggerZone extends Entity {
             }
         ) 
         if(settings.showHighlight){
-            this.boxHighlightZone = new BoxHighlight()
+            this.boxHighlightZone = new BoxHighlight(
+                Vector3.Zero(),
+                Vector3.One(),
+            )
             let { x, y, z } = settings.scale
             let expandAmount = .005
             this.boxHighlightZone.setScale(

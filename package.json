@@ -6,10 +6,13 @@
   "typings": "./dist/index.d.ts",
   "decentralandLibrary": {},
   "scripts": {
-    "build": "rollup -c --environment BUILD:production",
+    "build": "build-ecs",
+    "watch": "build-ecs --watch",
     "make": "cp -r src dist && cp package.json dist/package.json && cp LICENSE dist/LICENSE && cp README.md dist/README.md",
     "makeclean": "rm -rf dist && npm run make",
-    "link": "npm link && rollup --watch -c --environment BUILD:production"
+    "link": "npm link && rollup --watch -c --environment BUILD:production",
+    "ecs:install": "npm install --save-dev decentraland-ecs@latest",
+    "ecs:install-next": "npm install --save-dev decentraland-ecs@next"
   },
   "repository": {
     "type": "git",
@@ -29,7 +32,7 @@
   "homepage": "https://github.com/pmacom/dclconnect",
   "devDependencies": {
     "@microsoft/api-extractor": "^7.13.2",
-    "decentraland-ecs": "^6.6.4",
+    "decentraland-ecs": "6.6.5",
     "glob": "^7.1.6",
     "prettier": "^1.19.1",
     "rollup": "^2.35.1",
@@ -39,6 +42,9 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "typescript": "^4.2.4"
   },
+  "bundleDependencies": [
+    "@dcl/ecs-scene-utils"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -48,7 +54,11 @@
   ],
   "peerDependencies": {
     "colyseus.js": "^0.14.12",
-    "decentraland-ecs": "^6.6.4",
+    "decentraland-ecs": "^6.6.5",
     "tslib": "^2.0.1"
+  },
+  "dependencies": {
+    "@dcl/ecs-scene-utils": "^1.7.2",
+    "@dcl/ui-scene-utils": "^1.8.1"
   }
 }

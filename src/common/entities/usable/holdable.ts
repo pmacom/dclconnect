@@ -1,7 +1,7 @@
 // import { InspectorImage } from "src/dclconnect-gui/inspector"
 // import { DynamicImage } from "src/dclconnect/gui/dynamicImage"
 import { DynamicImage } from "src/gui/dynamicImage"
-import { state } from "../../state"
+import { state } from "src/state"
 import { InteractibleEntity, isInteractible } from "./interactible"
 
 // const guiInspector = new InspectorImage()
