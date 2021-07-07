@@ -1,3 +1,6 @@
+/**
+ * @public
+ */
 export class TriggerLayers {
     private static layers: Array<string> = []
     private static _instance: TriggerLayers

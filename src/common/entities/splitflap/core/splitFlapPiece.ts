@@ -9,6 +9,7 @@ let faceHeight = 71
 clockMaterial.albedoTexture = clockTexture
 clockMaterial.metallic = 0.5
 
+
 const convertPxToUV = (x: number, y: number, width: number, height: number, isFlipped?: boolean) : Array<number> => {
     let _x = map(x, 0, 510, 0, 1)
     let _y = map(y, 0, 1278, 0, 1)
@@ -35,7 +36,9 @@ const convertPxToUV = (x: number, y: number, width: number, height: number, isFl
     return uvs
 }
 
-
+/**
+ * @public
+ */
 export class SplitFlapPiece extends Entity {
     private faceEntity: Entity = new Entity()
     private faceShape: PlaneShape = new PlaneShape()
@@ -72,7 +75,7 @@ export class SplitFlapPiece extends Entity {
     }
 
     refreshUV() : void {
-        this.faceShape.uvs = [...this.uvFront, ...this.uvBack]
+        this.faceShape.uvs = [].concat(this.uvFront, this.uvBack)
     }
 
     setFaces(frontChar: string, backChar: string){

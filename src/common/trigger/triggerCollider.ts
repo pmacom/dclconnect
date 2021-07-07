@@ -1,7 +1,10 @@
 import * as utils from '@dcl/ecs-scene-utils'
 import { TriggerLayers } from './triggerLayers'
 
-interface TriggerColliderInput {
+/**
+ * @public
+ */
+export interface TriggerColliderInput {
     position: Vector3
     scale: Vector3
     layerName: string

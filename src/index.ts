@@ -1,8 +1,10 @@
+export { TriggerBoxShape } from "@dcl/ecs-scene-utils"
+
 export { GlobalCanvas } from "./gui/canvas"
 
 // Helpers
 export { Wait } from "./common/utils/wait"
-export { TriggerCollider } from './common/trigger/triggerCollider'
+export { TriggerCollider, TriggerColliderInput } from './common/trigger/triggerCollider'
 
 // Dynamic GUI elements
 export {
@@ -33,6 +35,7 @@ export {
     HoldableMetaData,
 } from "./common/entities/usable/holdable"
 
+
 // BoxHighlight
 export {
     BoxHighlight,
@@ -41,3 +44,4 @@ export {
 
 // SplitFlap
 export { SplitFlap } from "./common/entities/splitflap/core/splitFlap"
+

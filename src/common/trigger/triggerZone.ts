@@ -1,6 +1,10 @@
 import * as utils from '@dcl/ecs-scene-utils'
 import { BoxHighlight } from '../highlights/boxHighlight'
 import { TriggerLayers } from './triggerLayers'
+
+/**
+* @public
+*/
 export interface ITriggerZoneInput {
     position: Vector3
     scale: Vector3

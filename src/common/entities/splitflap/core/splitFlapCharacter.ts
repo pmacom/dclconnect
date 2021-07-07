@@ -4,6 +4,9 @@ import { chars } from "./settings"
 const splitFlipClip = new AudioClip("sounds/splitFlip.mp3")
 export const splitFlipSound = new AudioSource(splitFlipClip)
 
+/**
+ * @public
+ */
 export class SplitFlapCharacter extends Entity {
     public char: string = " "
     private targetChar: string = " "
@@ -89,6 +92,9 @@ export class SplitFlapCharacter extends Entity {
     }
 }
 
+/**
+ * @public
+ */
 export class SplitFlapBack extends Entity {
     private faceEntity: Entity = new Entity()
     private faceShape: PlaneShape = new PlaneShape()
