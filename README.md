@@ -1,6 +1,6 @@
 #dclconnect
 
-## Using the Utils library
+## Using this Utils library
 
 To use any of the helpers provided by the dclconnect utils library
 
@@ -32,6 +32,8 @@ npm install dclconnect
 ```
 
 ## BoxHighlight
+
+[![Experiment #6.1 - BoxHighlight](https://img.youtube.com/vi/3g2ao_MjQyI/maxresdefault.jpg)](https://youtu.be/3g2ao_MjQyI)
 
 ### Create New
 
@@ -86,6 +88,28 @@ It's not encouraged to rotate a BoxHighlight for a few reasons. In short, this i
 
 ```
 bh.setDirection("top")
+```
+
+## SplitFlap
+
+[![Experiment #7 - SplitFlap](https://img.youtube.com/vi/ZgK7BxVIobo/maxresdefault.jpg)](https://youtu.be/ZgK7BxVIobo)
+
+
+### Example
+
+```ts
+import { SplitFlap } from "dclconnect";
+
+// Creates a display that is 11 characters long
+const sf = new SplitFlap(11)
+sf.setText("Event Soon!")
+
+// Alternatively you can include the initial text in the same command
+const sf2 = new SplitFlap(11, "Event Soon!")
+
+// To quickly flip to the text without having to wait for it to cycle
+// through all of the characters, you can set the `quick` value to true
+const sf2.setText("Event Over!", true)
 ```
 
 
