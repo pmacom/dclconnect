@@ -33,7 +33,7 @@ npm install dclconnect
 
 ## BoxHighlight
 
-[![Experiment #6.1 - BoxHighlight](https://img.youtube.com/vi/3g2ao_MjQyI/maxresdefault.jpg)](https://youtu.be/3g2ao_MjQyI)
+[![Experiment #6.1 - BoxHighlight](https://i.ytimg.com/vi/3g2ao_MjQyI/hqdefault.jpg)](https://youtu.be/3g2ao_MjQyI)
 
 ### Create New
 
