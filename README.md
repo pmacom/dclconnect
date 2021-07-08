@@ -7,28 +7,30 @@ To use any of the helpers provided by the dclconnect utils library
 1.) Install it as an `npm` package. Run this command in your scene's project folder:
 
 ```
-npm install dclconnect
+npm install dclconnect@next
 ```
 
-2.) Add a new `path` that points to the dclconnect package. Also be sure to add the `include` path. You do not need to alter anything else in this file.
+2.) In your `tsconfig.json` - add a new `path` that points to the dclconnect package. Also be sure to add the `include` path. You do not need to alter anything else in this file. The code below is what it should look like after a brand new `dcl init` project is created.
 
-```
+```json
 {
   "compilerOptions": {
-	...
+    "outFile": "./bin/game.js",
+    "allowJs": true,
+    "strict": true,
     "paths": {
       "dclconnect": [
         "./node_modules/dclconnect/dist/index.d.ts"
       ]
-    },
-	...
+    }
   },
   "include": [
     "src/**/*.ts",
     "./node_modules/dclconnect/dist/index.js"
   ],
-  ...
+  "extends": "./node_modules/decentraland-ecs/types/tsconfig.json"
 }
+
 ```
 
 ## BoxHighlight
@@ -49,7 +51,7 @@ The `BoxHighlight` component is a graphical, non-colliding entity that can be us
 
 ### Example
 
-```
+```ts
 import { BoxHighlight } from "dclconnect";
 
 const bh = new BoxHighlight(
@@ -64,7 +66,7 @@ const bh = new BoxHighlight(
 You can set the color (and emission) of the stripes/surface with these methods. The color values are generally between 0-1 instead of 0-255. However, if you set any of the red, green, blue values to above 1, it will glow brightly! It looks cool.
 
 
-```
+```ts
 bh.setStripeColor(new Color3(1,1,0))
 bh.setSurfaceColor(new Color3(0,10,1))
 ```
@@ -74,7 +76,7 @@ bh.setSurfaceColor(new Color3(0,10,1))
 You can adjust the position, height, width and depth of the BoxHighlight by invoking the following methods. You just need to pass along the x, y, z as parameters.
 
 
-```
+```ts
 bh.setPosition(8, 3, 8)
 bh.setScale(3, 6, 3)
 ```
@@ -86,7 +88,7 @@ Options: "top" | "bottom" | "north" | "south" | "east" | "west"
 
 It's not encouraged to rotate a BoxHighlight for a few reasons. In short, this is due to the way that triggers, zones and other internal dcl entities work with collisions. You *can* technically rotate it, however there will be unintended effects.
 
-```
+```ts
 bh.setDirection("top")
 ```
 
@@ -115,9 +117,12 @@ const sf2.setText("Event Over!", true)
 
 ## DynamicImage
 
+Examples coming soon
+
 
 ## DynamicImageBar
 
+Examples coming soon
 
 ## AudioControlBar
 
