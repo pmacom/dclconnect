@@ -1,16 +1,19 @@
-#dclconnect
+# dclconnect
 
-## Using this Utils library
+## Installation
 
 To use any of the helpers provided by the dclconnect utils library
 
-1.) Install it as an `npm` package. Run this command in your scene's project folder:
+1.) Please install both dclconnect AND the ecs scene utility library
 
 ```
-npm install dclconnect@next
+npm install dclconnect@next 
+npm install @dcl/ecs-scene-utils
 ```
 
-2.) In your `tsconfig.json` - add a new `path` that points to the dclconnect package. Also be sure to add the `include` path. You do not need to alter anything else in this file. The code below is what it should look like after a brand new `dcl init` project is created.
+2.) In your `tsconfig.json` - add a new `path` that points to BOTH the dclconnect package AND the ecs-scene-utils libraries.
+
+3.) Also be sure to add the `include` path. You do not need to alter anything else in this file. The code below is what it should look like after a brand new `dcl init` project is created.
 
 ```json
 {
@@ -21,17 +24,24 @@ npm install dclconnect@next
     "paths": {
       "dclconnect": [
         "./node_modules/dclconnect/dist/index.d.ts"
-      ]
+      ],
+      "@dcl/ecs-scene-utils": [
+        "./node_modules/@dcl/ecs-scene-utils/dist/index.d.ts",
+      ],
     }
   },
   "include": [
     "src/**/*.ts",
+    "./node_modules/@dcl/ecs-scene-utils/dist/index.js",
     "./node_modules/dclconnect/dist/index.js"
   ],
   "extends": "./node_modules/decentraland-ecs/types/tsconfig.json"
 }
-
 ```
+
+## Getting the lastest version 
+
+`npm install --save dclconnect@next` to get the latest version
 
 ## BoxHighlight
 
