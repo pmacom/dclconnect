@@ -18,8 +18,9 @@ class WaitSystem implements ISystem {
     private actions: Array<IWaitAction> = []
 
     addWaitAction(func: Function, delay: number): Function{
-        let count = this.actions.length;
-        this.actions.push({ func, delay, timer: 0 })
+        let wait = { func, delay, timer: 0 }
+        let count = this.actions.length
+        this.actions.push(wait)
 		if (count === 0) {
 			engine.addSystem(this)
 		}

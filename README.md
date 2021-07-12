@@ -110,7 +110,7 @@ bh.setDirection("top")
 ### Example
 
 ```ts
-import { SplitFlap } from "dclconnect";
+import { SplitFlap } from "dclconnect"
 
 // Creates a display that is 11 characters long
 const sf = new SplitFlap(11)
@@ -187,8 +187,6 @@ audioControlVideoBar.setMaxVolume(1)
 
 ## Wait system
 
-Can use anywhere
-
 ```ts
 import { Wait } from "dclconnect"
 
@@ -208,6 +206,7 @@ import { Debouncer } from 'dclconnect'
 
 //add a debouncer with a 1.5 second timer
 const debouncer = new Debouncer((args)=>{
+  //logic to debounce
   log('Delayed action is complete')
 },1.5)
 

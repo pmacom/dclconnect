@@ -3,7 +3,7 @@ import { Wait } from './wait'
  * @public
  */
 export class Debouncer {
-	wait: Wait | null = null;
+	wait: Wait | null = null
 	constructor(
 		private onWaitingCompleteCallback: Function,
 		private delayInSeconds: number,
