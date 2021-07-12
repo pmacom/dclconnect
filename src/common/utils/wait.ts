@@ -3,8 +3,8 @@
  */
 export class Wait {
     reset: Function
-    constructor(func: Function, delay: number){
-        this.reset = waitSystem.addWaitAction(func, delay)
+    constructor(func: Function, delayInSeconds: number){
+        this.reset = waitSystem.addWaitAction(func, delayInSeconds)
     }
 }
 
