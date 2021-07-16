@@ -135,7 +135,8 @@ export class BoxHighlight extends Entity {
         public scale: Vector3,
         public dir: string = "top",
         public visible: boolean = true,
-        public texture?: Texture
+        public texture?: Texture,
+        public onClick?: OnPointerDown,
     ) {
         super()
         let t = texture ? texture : boxHighlightTexture
@@ -263,8 +264,14 @@ export class BoxHighlight extends Entity {
             let { points, isSurface } = side.dir[this.dir]
             entity.addComponentOrReplace(shape)
             entity.addComponentOrReplace(transform)
+            if(!isSurface){
+                entity.addComponentOrReplace(this.stripeMaterial)
+            }
             entity.addComponentOrReplace(isSurface ? this.surfaceMaterial : this.stripeMaterial)
             shape.withCollisions = false
+            if(isSurface && this.onClick){
+                entity.addComponent(this.onClick)
+            }
             side.startUVs = points
             shape.uvs = side.startUVs
             entity.setParent(this)

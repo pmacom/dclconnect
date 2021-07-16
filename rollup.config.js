@@ -154,7 +154,7 @@ async function apiExtractor() {
   })
 
   glob
-    .sync(path.dirname(packageJson.main) + '/**/*.d.ts', { absolute: true })
+    .sync(path.dirname(packageJson.main) + '/**/*.d.ts', { absolute: false })
     .forEach(file => {
       if (file != typingsFullPath) {
         fs.unlinkSync(file)
