@@ -7,8 +7,9 @@
 		"dist"
 	],
 	"compilerOptions": {
-	  "module": "ESNext",
+	  "module": "ES2015",
 	  "moduleResolution": "node",
+	  "declaration": true,
 	  "baseUrl": ".",
 	  "paths": {
 		"tslib" : ["node_modules/tslib/tslib.d.ts"],

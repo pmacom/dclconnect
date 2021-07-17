@@ -1,6 +1,5 @@
-
-import { BoxHighlight } from "src/common/highlights/boxHighlight"
-import { state } from "src/state"
+import { BoxHighlight } from "../../highlights/boxHighlight"
+import { state } from "../../../state"
 
 /**
  * @public

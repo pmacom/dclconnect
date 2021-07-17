@@ -1,6 +1,6 @@
 {
   "name": "dclconnect",
-  "version": "0.0.0-development",
+  "version": "0.0.5",
   "description": "A collection of utilities and helpers for building in decentraland and connecting to dclconnect services",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -20,8 +20,11 @@
     "singleQuote": true,
     "semi": false
   },
-  "keywords": [],
-  "author": "Decentraland",
+  "keywords": [
+    "decentraland",
+    "dcl"
+  ],
+  "author": "Patmacs#8139",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/pmacom/dclconnect/issues"
@@ -33,12 +36,13 @@
     "glob": "^7.1.6",
     "prettier": "^1.19.1",
     "rollup": "^2.35.1",
-    "tslib": "^2.3.0",
-    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
-    "typescript": "^4.2.4"
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5",
+    "semantic-release": "^17.3.6"
   },
   "publishConfig": {
     "access": "public"
