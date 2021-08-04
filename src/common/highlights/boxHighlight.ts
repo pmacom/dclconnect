@@ -1,4 +1,4 @@
-const boxHighlightTexture = new Texture("https://raw.githubusercontent.com/pmacom/dclconnect/master/images/boxHighlight.png")
+const boxHighlightTexture = new Texture("https://pmacom.github.io/assets/boxHighlight.png")
 
 /**
  * Object with settings for UV PlaneShape animations

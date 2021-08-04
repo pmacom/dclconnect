@@ -1,7 +1,7 @@
 import { map } from "../../../utils/map"
 import { chars } from "./settings"
 
-let clockTexture = new Texture("https://raw.githubusercontent.com/pmacom/dclconnect/master/images/splitFlapSprite.jpg")
+let clockTexture = new Texture("https://pmacom.github.io/assets/splitFlapSprite.jpg")
 let clockMaterial = new Material()
 let faceWidth = 102
 let faceHeight = 71
