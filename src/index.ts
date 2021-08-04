@@ -1,5 +1,3 @@
-export { TriggerBoxShape } from "@dcl/ecs-scene-utils"
-
 export { GlobalCanvas } from "./gui/canvas"
 
 // BoxHighlight

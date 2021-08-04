@@ -1,4 +1,4 @@
-import { map } from "src/common/utils/map"
+import { map } from "../../../utils/map"
 import { chars } from "./settings"
 
 let clockTexture = new Texture("https://raw.githubusercontent.com/pmacom/dclconnect/master/images/splitFlapSprite.jpg")

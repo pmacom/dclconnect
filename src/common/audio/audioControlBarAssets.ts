@@ -1,6 +1,6 @@
-import { GlobalCanvas } from "src/gui/canvas";
-import { DynamicImage } from "src/gui/dynamicImage";
-import { DynamicBarOrientation, DynamicImageBar } from "src/gui/dynamicImageBar";
+import { GlobalCanvas } from "../../gui/canvas";
+import { DynamicImage } from "../../gui/dynamicImage";
+import { DynamicBarOrientation, DynamicImageBar } from "../../gui/dynamicImageBar";
 
 const audioControl = "https://raw.githubusercontent.com/pmacom/dclconnect/master/images/audioControlBar.png"
 export const audioControlTexture = new Texture(audioControl)

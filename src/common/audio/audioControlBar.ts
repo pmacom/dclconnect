@@ -1,5 +1,5 @@
-import { DynamicImage } from 'src/gui/dynamicImage'
-import { DynamicImageBar } from 'src/gui/dynamicImageBar'
+import { DynamicImage } from '../../gui/dynamicImage'
+import { DynamicImageBar } from '../..//gui/dynamicImageBar'
 
 import {
     audioIcon,

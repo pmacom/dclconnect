@@ -1,6 +1,6 @@
 {
   "name": "dclconnect",
-  "version": "0.0.5",
+  "version": "0.0.20",
   "description": "A collection of utilities and helpers for building in decentraland and connecting to dclconnect services",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -32,17 +32,18 @@
   "homepage": "https://github.com/pmacom/dclconnect",
   "devDependencies": {
     "@microsoft/api-extractor": "^7.13.2",
-    "decentraland-ecs": "^6.6.4",
+    "decentraland-ecs": "^6.6.6",
     "glob": "^7.1.6",
     "prettier": "^1.19.1",
     "rollup": "^2.35.1",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
+    "semantic-release": "^17.3.6",
     "tslib": "^2.3.0",
-    "typescript": "^4.3.5",
-    "semantic-release": "^17.3.6"
+    "typescript": "^4.3.5"
   },
   "publishConfig": {
     "access": "public"
@@ -53,9 +54,6 @@
   ],
   "peerDependencies": {
     "colyseus.js": "^0.14.12",
-    "decentraland-ecs": "^6.6.4"
-  },
-  "dependencies": {
-    "@dcl/ecs-scene-utils": "^1.7.2"
+    "decentraland-ecs": "^6.6.5"
   }
 }

@@ -15,10 +15,17 @@ interface IWaitAction {
 
 class WaitSystem implements ISystem {
     private actions: Array<IWaitAction> = []
+    private system: ISystem
+
+    constructor(){
+        this.system = this
+    }
 
     addWaitAction(func: Function, delay: number){
         this.actions.push({ func, delay, timer: 0 })
-        engine.addSystem(this)
+        if(!this.system.active){
+            engine.addSystem(this)
+        }
     }
 
     update(dt: number){
