@@ -62,7 +62,7 @@ The `BoxHighlight` component is a graphical, non-colliding entity that can be us
 ### Example
 
 ```ts
-import { BoxHighlight } from "dclconnect";
+import { BoxHighlight } from "dclconnect"
 
 const bh = new BoxHighlight(
     new Vector3(5,2.5,5),
@@ -110,7 +110,7 @@ bh.setDirection("top")
 ### Example
 
 ```ts
-import { SplitFlap } from "dclconnect";
+import { SplitFlap } from "dclconnect"
 
 // Creates a display that is 11 characters long
 const sf = new SplitFlap(11)
@@ -183,4 +183,34 @@ audioControlVideoBar.setVolume(50)
 // Set the Maximum Volume (Careful with this. Some videos/streams are LOUD.
 // So this is an audio dampener of sorts. Default: .2
 audioControlVideoBar.setMaxVolume(1)
+```
+
+## Wait system
+
+```ts
+import { Wait } from "dclconnect"
+
+//Delay a function for 5 seconds
+
+//Use anywhere
+new Wait(() => {
+   //executes after 5 seconds
+}, 5)
+```
+
+## Debouncer 
+The debouncer throttles a previous callback function from executing when the Debouncer.action() is called again subsequently
+
+```ts
+import { Debouncer } from 'dclconnect'
+
+//add a debouncer with a 1.5 second timer
+const debouncer = new Debouncer((args)=>{
+  //logic to debounce
+  log('Delayed action is complete')
+},1.5)
+
+// enables the debouncer OR reset the debouncer
+// optionally you may pass arguments through to the callback function
+debouncer.action(args)
 ```

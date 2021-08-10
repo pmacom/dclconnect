@@ -8,6 +8,7 @@ export {
 
 // Helpers
 export { Wait } from "./common/utils/wait"
+export { Debouncer } from "./common/utils/debouncer"
 export { TriggerCollider, TriggerColliderInput } from './common/trigger/triggerCollider'
 
 // Dynamic GUI elements

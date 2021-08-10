@@ -2,8 +2,9 @@
  * @public
  */
 export class Wait {
-    constructor(func: Function, delay: number){
-        waitSystem.addWaitAction(func, delay)
+    reset: Function
+    constructor(func: Function, delayInSeconds: number){
+        this.reset = waitSystem.addWaitAction(func, delayInSeconds)
     }
 }
 
@@ -22,10 +23,12 @@ class WaitSystem implements ISystem {
     }
 
     addWaitAction(func: Function, delay: number){
-        this.actions.push({ func, delay, timer: 0 })
-        if(!this.system.active){
-            engine.addSystem(this)
-        }
+      let wait = { func, delay, timer: 0 }
+      this.actions.push(wait)
+      if(!this.system.active){
+        engine.addSystem(this)
+      }
+      return () => (wait.timer = 0)
     }
 
     update(dt: number){
