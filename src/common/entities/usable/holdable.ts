@@ -1,7 +1,7 @@
 // import { InspectorImage } from "src/dclconnect-gui/inspector"
 // import { DynamicImage } from "src/dclconnect/gui/dynamicImage"
-import { DynamicImage } from "src/gui/dynamicImage"
-import { state } from "src/state"
+import { DynamicImage } from "../../..//gui/dynamicImage"
+import { state } from "../../../state"
 import { InteractibleEntity, isInteractible } from "./interactible"
 
 // const guiInspector = new InspectorImage()
@@ -80,7 +80,7 @@ const input = Input.instance
 input.subscribe("BUTTON_DOWN", ActionButton.SECONDARY, true, (event) => {
     const entity = state.isHoldingEntityName ? findHoldableEntityByName(state.isHoldingEntityName) : null
     if(state.isHolding && event.hit){
-        if(event.hit.normal.y >= 0.98 && event.hit.normal.y <= 1.02 && entity){
+        if(event.hit.normal.y >= 0.96 && event.hit.normal.y <= 1.04 && entity){
             entity.putDown(event.hit.hitPoint)
         }
     }

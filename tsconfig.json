@@ -1,28 +1,13 @@
 {
-	"include": [
-		"src",
-		"node_modules/@dcl/ui-scene-utils/dist/index.js"
-	],
-	"exclude": [
-		"dist"
-	],
+	"include": ["src/**/*.ts"],
+	"exclude": ["dist"],
 	"compilerOptions": {
-	  "module": "ESNext",
-	  "moduleResolution": "node",
-	  "baseUrl": ".",
-	  "paths": {
-		"tslib" : ["node_modules/tslib/tslib.d.ts"],
-		"colyseus.js": [
-		  "node_modules/colyseus.js/dist/colyseus.d.ts",
-		  "node_modules/colyseus.js/lib/index.d.ts"
-		],
-		"@dcl/ecs-scene-utils": [
-		  "node_modules/@dcl/ecs-scene-utils/dist/index.d.ts"
-		],
-		"@dcl/ui-scene-utils": [
-		  "node_modules/@dcl/ui-scene-utils/dist/index.d.ts"
-		]
-	  },
+		"module": "ESNext",
+		"declaration": true,
+		"sourceMap": true,
+		"inlineSourceMap": false,
+		"allowJs": true,
+		"paths": {},
 	},
 	"extends": "./node_modules/decentraland-ecs/types/tsconfig.json"
 }

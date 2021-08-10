@@ -1,6 +1,10 @@
-export { TriggerBoxShape } from "@dcl/ecs-scene-utils"
-
 export { GlobalCanvas } from "./gui/canvas"
+
+// BoxHighlight
+export {
+    BoxHighlight,
+    GlobalBoxHighlight,
+} from "./common/highlights/boxHighlight"
 
 // Helpers
 export { Wait } from "./common/utils/wait"
@@ -36,12 +40,6 @@ export {
     HoldableMetaData,
 } from "./common/entities/usable/holdable"
 
-
-// BoxHighlight
-export {
-    BoxHighlight,
-    GlobalBoxHighlight,
-} from "./common/highlights/boxHighlight"
 
 // SplitFlap
 export { SplitFlap } from "./common/entities/splitflap/core/splitFlap"
