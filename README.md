@@ -7,7 +7,7 @@ To use any of the helpers provided by the dclconnect utils library
 1.) Please install both dclconnect AND the ecs scene utility library
 
 ```
-npm install dclconnect@next 
+npm install dclconnect
 npm install @dcl/ecs-scene-utils
 ```
 
