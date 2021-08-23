@@ -34,7 +34,6 @@ export class SplitFlap extends Entity {
         for(let i=0; i<length; i++){
             let ccc = new SplitFlapCharacter()
             ccc.getComponent(Transform).position = new Vector3(i*-1, 1, 1)
-            log(text, i, text[i])
             ccc.setCharacter(text[i] ? text[i] : " ")
             ccc.setParent(this)
             this.chars.push(ccc)
@@ -63,21 +62,6 @@ export class SplitFlap extends Entity {
             }
         })
     }
-
-    // flipToText(text: string){
-    //     this.text = text
-    //     this.text.split("").forEach((char, index) => {
-    //         if(this.chars[index].char !== char){
-    //             log(this.chars[index].char, char)
-    //             let id = chars.indexOf(this.chars[index].char.toUpperCase())
-    //             debugger
-    //             if(id==chars.length-1){ id = 0 }else{ id = id+1 }
-    //             this.chars[index].setCharacter(chars[id], () => {
-    //                 this.flipToText(text)
-    //             })
-    //         }
-    //     })
-    // }
 
     /**
      * Scales the size of the SplitFlap
