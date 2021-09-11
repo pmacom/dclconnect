@@ -47,3 +47,6 @@ export { SplitFlap } from "./common/entities/splitflap/core/splitFlap"
 
 // AudioControlBar
 export { AudioControlBar } from "./common/audio/audioControlBar"
+
+// Components
+export { OnLook } from "./common/components/onLook"

@@ -12,7 +12,7 @@ export class Debouncer {
 	public action(...args: any) {
 		if (!this.wait) {
 			this.wait = new Wait(() => {
-				this.onWaitingCompleteCallback(...args)
+				this.onWaitingCompleteCallback(args)
 				this.wait = null
 			}, this.delayInSeconds)
 		} else {
