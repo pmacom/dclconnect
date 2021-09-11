@@ -214,3 +214,40 @@ const debouncer = new Debouncer((args)=>{
 // optionally you may pass arguments through to the callback function
 debouncer.action(args)
 ```
+
+
+## onLook
+Add an onLook event to your entity with ease.
+
+```ts
+import { OnLook } from 'dclconnect'
+
+export class HighlightableBox extends Entity {
+    private material = new Material()
+
+    constructor(){
+        super()
+        this.addComponent(new Transform({
+            position: new Vector3(8,1,8)
+        }))
+        this.addComponent(new BoxShape())
+
+        this.addComponent(new OnLook({
+            onFocus: () => this.highlight(true),
+            onBlur: () => this.highlight(false),
+            distance: 100,
+        }))
+
+        this.material.albedoColor = Color3.Blue()
+        this.material.metallic = 0.9
+        this.material.roughness = 0.1
+        this.addComponent(this.material)
+
+        engine.addEntity(this)
+    }
+
+    highlight(isActive: boolean){
+        this.material.albedoColor = isActive ? Color3.Yellow() : Color3.Blue()
+    }
+}
+```
