@@ -50,3 +50,6 @@ export { AudioControlBar } from "./common/audio/audioControlBar"
 
 // Components
 export { OnLook } from "./common/components/onLook"
+
+export { DynamicContainerRect } from "./gui/dynamicContainerRect"
+export { DynamicImage2 } from "./gui/dynamicImage2"

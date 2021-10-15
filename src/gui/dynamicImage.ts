@@ -47,6 +47,7 @@ export interface DynamicAnimation {
     position?: DynamicAnimationVector2
     sourceSize?: DynamicAnimationVector2
     sourcePosition?: DynamicAnimationVector2
+    ease?: Function
 }
 
 /**
@@ -80,6 +81,28 @@ export class DynamicImage implements ISystem{
 
     show(){
         this.image.visible = true
+    }
+
+    fadeIn(duration: number){
+        let from = this.image.opacity
+        let to = 1
+        if(this.animate){
+            this.animations.opacity = new DynamicAnimationNumber({ from, to, duration })
+            this.enable()
+        }else{
+            this.image.opacity = to
+        }
+    }
+
+    fadeOut(duration: number){
+        let from = this.image.opacity
+        let to = 0
+        if(this.animate){
+            this.animations.opacity = new DynamicAnimationNumber({ from, to, duration })
+            this.enable()
+        }else{
+            this.image.opacity = to
+        }
     }
 
     fadeTo(to: number, duration: number){

@@ -53,6 +53,10 @@ export class AudioControlBar extends Entity {
         engine.addEntity(this)
     }
 
+    public updateSource(source: AudioStream | VideoTexture){
+        this.addComponentOrReplace(source)
+    }
+
     private updateGUI(){
         if(this.isAudible){
             this.audioMuteIcon.show()
@@ -111,5 +115,20 @@ export class AudioControlBar extends Entity {
         this.clickableBars.forEach(bar => {
             bar.positionY = offset-6
         })
+    }
+
+    hide(){
+        this.audioControlBg.hide()
+        this.audioControlFill.hide()
+        this.audioIcon.hide()
+        this.audioMuteIcon.hide()
+        this.audioMutedIcon.hide()
+    }
+    show(){
+        this.audioControlBg.show()
+        this.audioControlFill.show()
+        this.audioIcon.show()
+        this.audioMuteIcon.show()
+        this.audioMutedIcon.show()
     }
 }
