@@ -18,7 +18,6 @@ export class EmoteUI {
   icon: DynamicImage
   buttons: DynamicImage[] = []
   currentEmote: string = ''
-  uiItem: Array<DynamicImage | DynamicText> = []
   menuVisible: boolean = false
   slices = [
     //Prefix non-buttons with "spacer"
@@ -107,7 +106,6 @@ export class EmoteUI {
         })
         this.buttons.push(part)
       }
-      this.uiItem.push(part)
     })
   }
 
