@@ -251,3 +251,12 @@ export class HighlightableBox extends Entity {
     }
 }
 ```
+
+## EmoteUI
+Add a UI element to control automatic emoting. EmoteUI accepts iconTextureUrl (args[0]) and menuTextureUrl (args[1]), both are optional arguments.
+
+```ts
+import { EmoteUI } from 'dclconnect'
+
+new EmoteUI(args)
+```
