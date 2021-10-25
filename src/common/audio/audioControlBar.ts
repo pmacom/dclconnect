@@ -54,7 +54,7 @@ export class AudioControlBar extends Entity {
     }
 
     public updateSource(source: AudioStream | VideoTexture){
-        this.addComponentOrReplace(source)
+        this.source = source
         this.unmute()
     }
 
