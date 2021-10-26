@@ -249,7 +249,7 @@ export class HighlightableBox extends Entity {
 
 ## DCLConnectUIEmote
 
-Add a UI element to control automatic emoting. EmoteUI accepts iconTextureUrl (args[0]) and menuTextureUrl (args[1]), both are optional arguments.
+Add a UI element to control automatic emoting. DCLConnectUIEmote.create() requires `triggerEmote` (args[0]), while `iconTextureUrl` (args[1]) and `menuTextureUrl` (args[2]) are optional arguments.
 
 Update `scene.json` to include the following:
 
