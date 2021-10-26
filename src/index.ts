@@ -3,7 +3,7 @@ export { GlobalCanvas } from './gui/canvas'
 // BoxHighlight
 export {
   BoxHighlight,
-  GlobalBoxHighlight,
+  GlobalBoxHighlight
 } from './common/highlights/boxHighlight'
 
 // Helpers
@@ -11,7 +11,7 @@ export { Wait } from './common/utils/wait'
 export { Debouncer } from './common/utils/debouncer'
 export {
   TriggerCollider,
-  TriggerColliderInput,
+  TriggerColliderInput
 } from './common/trigger/triggerCollider'
 
 // Dynamic GUI elements
@@ -21,7 +21,7 @@ export {
   DynamicAnimationNumber,
   DynamicAnimationVector2,
   IDynamicAnimationNumber,
-  IDynamicAnimationVector2,
+  IDynamicAnimationVector2
 } from './gui/dynamicImage'
 export { DynamicImageBar, DynamicBarOrientation } from './gui/dynamicImageBar'
 export {
@@ -30,7 +30,7 @@ export {
   DynamicTextAnimationNumber,
   DynamicTextAnimationVector2,
   IDynamicTextAnimationNumber,
-  IDynamicTextAnimationVector2,
+  IDynamicTextAnimationVector2
 } from './gui/dynamicText'
 
 export { DCLConnectEase } from './gui/ease'
@@ -39,7 +39,7 @@ export { DCLConnectEase } from './gui/ease'
 export { InteractibleEntity } from './common/entities/usable/interactible'
 export {
   HoldableEntity,
-  HoldableMetaData,
+  HoldableMetaData
 } from './common/entities/usable/holdable'
 
 // SplitFlap
@@ -55,4 +55,4 @@ export { DynamicContainerRect } from './gui/dynamicContainerRect'
 export { DynamicImage2 } from './gui/dynamicImage2'
 
 //Prepared UI tools
-export { EmoteUI } from './common/ui/emoteui'
+export { DCLConnectUIEmote } from './common/ui/emoteui'

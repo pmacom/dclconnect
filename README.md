@@ -22,12 +22,10 @@ npm install @dcl/ecs-scene-utils
     "allowJs": true,
     "strict": true,
     "paths": {
-      "dclconnect": [
-        "./node_modules/dclconnect/dist/index.d.ts"
-      ],
+      "dclconnect": ["./node_modules/dclconnect/dist/index.d.ts"],
       "@dcl/ecs-scene-utils": [
-        "./node_modules/@dcl/ecs-scene-utils/dist/index.d.ts",
-      ],
+        "./node_modules/@dcl/ecs-scene-utils/dist/index.d.ts"
+      ]
     }
   },
   "include": [
@@ -39,7 +37,7 @@ npm install @dcl/ecs-scene-utils
 }
 ```
 
-## Getting the lastest version 
+## Getting the lastest version
 
 `npm install --save dclconnect@next` to get the latest version
 
@@ -56,18 +54,17 @@ The `BoxHighlight` component is a graphical, non-colliding entity that can be us
 - `position`: `Vector3` for the position
 - `scale`: `Vector3` for the scale
 - `direction`: `String` indicates the direction the effect should face.
- - Options: "top" | "bottom" | "north" | "south" | "east" | "west"
-
+- Options: "top" | "bottom" | "north" | "south" | "east" | "west"
 
 ### Example
 
 ```ts
-import { BoxHighlight } from "dclconnect"
+import { BoxHighlight } from 'dclconnect'
 
 const bh = new BoxHighlight(
-    new Vector3(5,2.5,5),
-    new Vector3(5,5,5),
-    "north"
+  new Vector3(5, 2.5, 5),
+  new Vector3(5, 5, 5),
+  'north'
 )
 ```
 
@@ -75,16 +72,14 @@ const bh = new BoxHighlight(
 
 You can set the color (and emission) of the stripes/surface with these methods. The color values are generally between 0-1 instead of 0-255. However, if you set any of the red, green, blue values to above 1, it will glow brightly! It looks cool.
 
-
 ```ts
-bh.setStripeColor(new Color3(1,1,0))
-bh.setSurfaceColor(new Color3(0,10,1))
+bh.setStripeColor(new Color3(1, 1, 0))
+bh.setSurfaceColor(new Color3(0, 10, 1))
 ```
 
 ### BoxHighlight.(setPosition/setScale)
 
 You can adjust the position, height, width and depth of the BoxHighlight by invoking the following methods. You just need to pass along the x, y, z as parameters.
-
 
 ```ts
 bh.setPosition(8, 3, 8)
@@ -96,16 +91,15 @@ bh.setScale(3, 6, 3)
 Indicate the direction that the BoxHighlight effect should point.
 Options: "top" | "bottom" | "north" | "south" | "east" | "west"
 
-It's not encouraged to rotate a BoxHighlight for a few reasons. In short, this is due to the way that triggers, zones and other internal dcl entities work with collisions. You *can* technically rotate it, however there will be unintended effects.
+It's not encouraged to rotate a BoxHighlight for a few reasons. In short, this is due to the way that triggers, zones and other internal dcl entities work with collisions. You _can_ technically rotate it, however there will be unintended effects.
 
 ```ts
-bh.setDirection("top")
+bh.setDirection('top')
 ```
 
 ## SplitFlap
 
 [![Experiment #7 - SplitFlap](https://img.youtube.com/vi/ZgK7BxVIobo/maxresdefault.jpg)](https://youtu.be/ZgK7BxVIobo)
-
 
 ### Example
 
@@ -124,11 +118,9 @@ const sf2 = new SplitFlap(11, "Event Soon!")
 const sf2.setText("Event Over!", true)
 ```
 
-
 ## DynamicImage
 
 Examples coming soon
-
 
 ## DynamicImageBar
 
@@ -144,9 +136,9 @@ Please review the official `AudioStreams` docs for setting up your audio streams
 
 ```ts
 // For AudioStreams
-const audioControlBar = new AudioControlBar(new AudioStream(
-    "https://ice1.somafm.com/groovesalad-128-mp3"
-))
+const audioControlBar = new AudioControlBar(
+  new AudioStream('https://ice1.somafm.com/groovesalad-128-mp3')
+)
 ```
 
 ### VideoStreams
@@ -155,9 +147,7 @@ Please review the official `VideoTexture` docs for setting up a video screen pro
 
 ```ts
 // For VideoTextures
-const vclip = new VideoClip(
-    "https://Somedomain/Video.m3u8"
-)
+const vclip = new VideoClip('https://Somedomain/Video.m3u8')
 const myVideoTexture = new VideoTexture(vclip)
 const audioControlVideoBar = new AudioControlBar(myVideoTexture)
 ```
@@ -188,75 +178,92 @@ audioControlVideoBar.setMaxVolume(1)
 ## Wait system
 
 ```ts
-import { Wait } from "dclconnect"
+import { Wait } from 'dclconnect'
 
 //Delay a function for 5 seconds
 
 //Use anywhere
 new Wait(() => {
-   //executes after 5 seconds
+  //executes after 5 seconds
 }, 5)
 ```
 
-## Debouncer 
+## Debouncer
+
 The debouncer throttles a previous callback function from executing when the Debouncer.action() is called again subsequently
 
 ```ts
 import { Debouncer } from 'dclconnect'
 
 //add a debouncer with a 1.5 second timer
-const debouncer = new Debouncer((args)=>{
+const debouncer = new Debouncer(args => {
   //logic to debounce
   log('Delayed action is complete')
-},1.5)
+}, 1.5)
 
 // enables the debouncer OR reset the debouncer
 // optionally you may pass arguments through to the callback function
 debouncer.action(args)
 ```
 
-
 ## onLook
+
 Add an onLook event to your entity with ease.
 
 ```ts
 import { OnLook } from 'dclconnect'
 
 export class HighlightableBox extends Entity {
-    private material = new Material()
+  private material = new Material()
 
-    constructor(){
-        super()
-        this.addComponent(new Transform({
-            position: new Vector3(8,1,8)
-        }))
-        this.addComponent(new BoxShape())
+  constructor() {
+    super()
+    this.addComponent(
+      new Transform({
+        position: new Vector3(8, 1, 8)
+      })
+    )
+    this.addComponent(new BoxShape())
 
-        this.addComponent(new OnLook({
-            onFocus: () => this.highlight(true),
-            onBlur: () => this.highlight(false),
-            distance: 100,
-        }))
+    this.addComponent(
+      new OnLook({
+        onFocus: () => this.highlight(true),
+        onBlur: () => this.highlight(false),
+        distance: 100
+      })
+    )
 
-        this.material.albedoColor = Color3.Blue()
-        this.material.metallic = 0.9
-        this.material.roughness = 0.1
-        this.addComponent(this.material)
+    this.material.albedoColor = Color3.Blue()
+    this.material.metallic = 0.9
+    this.material.roughness = 0.1
+    this.addComponent(this.material)
 
-        engine.addEntity(this)
-    }
+    engine.addEntity(this)
+  }
 
-    highlight(isActive: boolean){
-        this.material.albedoColor = isActive ? Color3.Yellow() : Color3.Blue()
-    }
+  highlight(isActive: boolean) {
+    this.material.albedoColor = isActive ? Color3.Yellow() : Color3.Blue()
+  }
 }
 ```
 
-## EmoteUI
+## DCLConnectUIEmote
+
 Add a UI element to control automatic emoting. EmoteUI accepts iconTextureUrl (args[0]) and menuTextureUrl (args[1]), both are optional arguments.
 
-```ts
-import { EmoteUI } from 'dclconnect'
+Update `scene.json` to include the following:
 
-new EmoteUI(args)
+```
+"requiredPermissions": [
+  "ALLOW_TO_TRIGGER_AVATAR_EMOTE"
+],
+```
+
+Usage:
+
+```ts
+import { triggerEmote } from '@decentraland/RestrictedActions'
+import { DCLConnectUIEmote } from 'dclconnect'
+
+DCLConnectUIEmote.create(triggerEmote)
 ```
