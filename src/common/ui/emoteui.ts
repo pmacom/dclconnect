@@ -31,28 +31,28 @@ const slices = [
   { x: 87, y: 50, w: 13, h: 250, px: 92, py: 95, name: 'spacerright' }
 ]
 
-type Emote = {
-  predefined: PredefinedEmote
-}
+// type Emote = {
+//   predefined: PredefinedEmote
+// }
 
-const enum PredefinedEmote {
-  WAVE = 'wave',
-  FIST_PUMP = 'fistpump',
-  ROBOT = 'robot',
-  RAISE_HAND = 'raiseHand',
-  CLAP = 'clap',
-  MONEY = 'money',
-  KISS = 'kiss',
-  TIK = 'tik',
-  HAMMER = 'hammer',
-  TEKTONIK = 'tektonik',
-  DONT_SEE = 'dontsee',
-  HANDS_AIR = 'handsair',
-  SHRUG = 'shrug',
-  DISCO = 'disco',
-  DAB = 'dab',
-  HEAD_EXPLODDE = 'headexplode'
-}
+// const enum PredefinedEmote {
+//   WAVE = 'wave',
+//   FIST_PUMP = 'fistpump',
+//   ROBOT = 'robot',
+//   RAISE_HAND = 'raiseHand',
+//   CLAP = 'clap',
+//   MONEY = 'money',
+//   KISS = 'kiss',
+//   TIK = 'tik',
+//   HAMMER = 'hammer',
+//   TEKTONIK = 'tektonik',
+//   DONT_SEE = 'dontsee',
+//   HANDS_AIR = 'handsair',
+//   SHRUG = 'shrug',
+//   DISCO = 'disco',
+//   DAB = 'dab',
+//   HEAD_EXPLODDE = 'headexplode'
+// }
 
 /**
  * @public
@@ -66,7 +66,8 @@ class EmoteUI {
   buttons: DynamicImage[] = []
   currentEmote: string = ''
   menuVisible: boolean = false
-  triggerEmote: (emote: Emote) => Promise<void> | undefined
+  triggerEmote: any
+  PredefinedEmote: any
 
   constructor(
     iconTextureUrl: string = defaultIconImageURL,
@@ -77,13 +78,15 @@ class EmoteUI {
   }
 
   public create(
-    triggerEmote: (emote: Emote) => Promise<void> | undefined,
+    triggerEmote: any,
+    PredefinedEmote: any,
     iconTextureURL: string = defaultIconImageURL,
     menuTextureURL: string = defaultMenuImageURL
   ) {
     this.iconTexture = new Texture(iconTextureURL)
     this.menuTexture = new Texture(menuTextureURL)
     this.triggerEmote = triggerEmote
+    this.PredefinedEmote = PredefinedEmote
     this.menuContainer = new DynamicContainerRect(new UIContainerRect(canvas))
     this.menuContainer.rect.hAlign = 'right'
     this.menuContainer.rect.vAlign = 'top'
@@ -165,63 +168,63 @@ class EmoteUI {
     }
   }
 
-  private getEmoteInfo(emote: string): [PredefinedEmote | null, number | null] {
+  private getEmoteInfo(emote: string): [any | null, number | null] {
     switch (emote) {
       case 'wave':
-        return [PredefinedEmote.WAVE, 3]
+        return [this.PredefinedEmote.WAVE, 3]
       case 'fistpump':
-        return [PredefinedEmote.FIST_PUMP, 3]
+        return [this.PredefinedEmote.FIST_PUMP, 3]
       case 'robot':
-        return [PredefinedEmote.ROBOT, 9]
+        return [this.PredefinedEmote.ROBOT, 9]
       case 'raiseHand':
-        return [PredefinedEmote.RAISE_HAND, 3]
+        return [this.PredefinedEmote.RAISE_HAND, 3]
       case 'clap':
-        return [PredefinedEmote.CLAP, 5]
+        return [this.PredefinedEmote.CLAP, 5]
       case 'money':
-        return [PredefinedEmote.MONEY, 5]
+        return [this.PredefinedEmote.MONEY, 5]
       case 'kiss':
-        return [PredefinedEmote.KISS, 5]
+        return [this.PredefinedEmote.KISS, 5]
       case 'tik':
-        return [PredefinedEmote.TIK, 10]
+        return [this.PredefinedEmote.TIK, 10]
       case 'hammer':
-        return [PredefinedEmote.HAMMER, 11]
+        return [this.PredefinedEmote.HAMMER, 11]
       case 'tektonik':
-        return [PredefinedEmote.TEKTONIK, 10]
+        return [this.PredefinedEmote.TEKTONIK, 10]
       case 'dontsee':
-        return [PredefinedEmote.DONT_SEE, 2]
+        return [this.PredefinedEmote.DONT_SEE, 2]
       case 'handsair':
-        return [PredefinedEmote.HANDS_AIR, 5]
+        return [this.PredefinedEmote.HANDS_AIR, 5]
       case 'shrug':
-        return [PredefinedEmote.SHRUG, 2]
+        return [this.PredefinedEmote.SHRUG, 2]
       case 'disco':
-        return [PredefinedEmote.DISCO, 11]
+        return [this.PredefinedEmote.DISCO, 11]
       case 'dab':
-        return [PredefinedEmote.DAB, 3]
+        return [this.PredefinedEmote.DAB, 3]
       case 'headexplode':
-        return [PredefinedEmote.HEAD_EXPLODDE, 4]
+        return [this.PredefinedEmote.HEAD_EXPLODDE, 4]
       default:
         return [null, null]
     }
   }
 
-  private getRandomEmote(): PredefinedEmote {
+  private getRandomEmote(): any {
     const emotes = [
-      PredefinedEmote.WAVE,
-      PredefinedEmote.FIST_PUMP,
-      PredefinedEmote.ROBOT,
-      PredefinedEmote.RAISE_HAND,
-      PredefinedEmote.CLAP,
-      PredefinedEmote.MONEY,
-      PredefinedEmote.KISS,
-      PredefinedEmote.TIK,
-      PredefinedEmote.HAMMER,
-      PredefinedEmote.TEKTONIK,
-      PredefinedEmote.DONT_SEE,
-      PredefinedEmote.HANDS_AIR,
-      PredefinedEmote.SHRUG,
-      PredefinedEmote.DISCO,
-      PredefinedEmote.DAB,
-      PredefinedEmote.HEAD_EXPLODDE
+      this.PredefinedEmote.WAVE,
+      this.PredefinedEmote.FIST_PUMP,
+      this.PredefinedEmote.ROBOT,
+      this.PredefinedEmote.RAISE_HAND,
+      this.PredefinedEmote.CLAP,
+      this.PredefinedEmote.MONEY,
+      this.PredefinedEmote.KISS,
+      this.PredefinedEmote.TIK,
+      this.PredefinedEmote.HAMMER,
+      this.PredefinedEmote.TEKTONIK,
+      this.PredefinedEmote.DONT_SEE,
+      this.PredefinedEmote.HANDS_AIR,
+      this.PredefinedEmote.SHRUG,
+      this.PredefinedEmote.DISCO,
+      this.PredefinedEmote.DAB,
+      this.PredefinedEmote.HEAD_EXPLODDE
     ]
     return emotes[Math.floor(Math.random() * emotes.length)]
   }
