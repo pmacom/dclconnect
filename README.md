@@ -262,8 +262,8 @@ Update `scene.json` to include the following:
 Usage:
 
 ```ts
-import { triggerEmote } from '@decentraland/RestrictedActions'
+import { triggerEmote, PredefinedEmote } from '@decentraland/RestrictedActions'
 import { DCLConnectUIEmote } from 'dclconnect'
 
-DCLConnectUIEmote.create(triggerEmote)
+DCLConnectUIEmote.create(triggerEmote, PredefinedEmote)
 ```
