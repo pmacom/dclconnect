@@ -1,6 +1,6 @@
 {
   "name": "dclconnect",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "description": "A collection of utilities and helpers for building in decentraland and connecting to dclconnect services",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
