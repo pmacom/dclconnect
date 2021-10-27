@@ -53,7 +53,6 @@ const slices = [
 //   DAB = 'dab',
 //   HEAD_EXPLODDE = 'headexplode'
 // }
-
 /**
  * @public
  */
@@ -67,7 +66,7 @@ class EmoteUI {
   currentEmote: string = ''
   menuVisible: boolean = false
   triggerEmote: any
-  PredefinedEmote: any
+  PredefinedEmotes: any
 
   constructor(
     iconTextureUrl: string = defaultIconImageURL,
@@ -79,14 +78,14 @@ class EmoteUI {
 
   public create(
     triggerEmote: any,
-    PredefinedEmote: any,
+    PredefinedEmotes: any,
     iconTextureURL: string = defaultIconImageURL,
     menuTextureURL: string = defaultMenuImageURL
   ) {
     this.iconTexture = new Texture(iconTextureURL)
     this.menuTexture = new Texture(menuTextureURL)
     this.triggerEmote = triggerEmote
-    this.PredefinedEmote = PredefinedEmote
+    this.PredefinedEmotes = PredefinedEmotes
     this.menuContainer = new DynamicContainerRect(new UIContainerRect(canvas))
     this.menuContainer.rect.hAlign = 'right'
     this.menuContainer.rect.vAlign = 'top'
@@ -168,65 +167,47 @@ class EmoteUI {
     }
   }
 
-  private getEmoteInfo(emote: string): [any | null, number | null] {
+  private getEmoteInfo(emote: any): [any | null, number | null] {
     switch (emote) {
       case 'wave':
-        return [this.PredefinedEmote.WAVE, 3]
+        return [this.PredefinedEmotes[0], 3]
       case 'fistpump':
-        return [this.PredefinedEmote.FIST_PUMP, 3]
+        return [this.PredefinedEmotes[1], 3]
       case 'robot':
-        return [this.PredefinedEmote.ROBOT, 9]
+        return [this.PredefinedEmotes[2], 9]
       case 'raiseHand':
-        return [this.PredefinedEmote.RAISE_HAND, 3]
+        return [this.PredefinedEmotes[3], 3]
       case 'clap':
-        return [this.PredefinedEmote.CLAP, 5]
+        return [this.PredefinedEmotes[4], 5]
       case 'money':
-        return [this.PredefinedEmote.MONEY, 5]
+        return [this.PredefinedEmotes[5], 5]
       case 'kiss':
-        return [this.PredefinedEmote.KISS, 5]
+        return [this.PredefinedEmotes[6], 5]
       case 'tik':
-        return [this.PredefinedEmote.TIK, 10]
+        return [this.PredefinedEmotes[7], 10]
       case 'hammer':
-        return [this.PredefinedEmote.HAMMER, 11]
+        return [this.PredefinedEmotes[8], 11]
       case 'tektonik':
-        return [this.PredefinedEmote.TEKTONIK, 10]
+        return [this.PredefinedEmotes[9], 10]
       case 'dontsee':
-        return [this.PredefinedEmote.DONT_SEE, 2]
+        return [this.PredefinedEmotes[10], 2]
       case 'handsair':
-        return [this.PredefinedEmote.HANDS_AIR, 5]
+        return [this.PredefinedEmotes[11], 5]
       case 'shrug':
-        return [this.PredefinedEmote.SHRUG, 2]
+        return [this.PredefinedEmotes[12], 2]
       case 'disco':
-        return [this.PredefinedEmote.DISCO, 11]
+        return [this.PredefinedEmotes[13], 11]
       case 'dab':
-        return [this.PredefinedEmote.DAB, 3]
+        return [this.PredefinedEmotes[14], 3]
       case 'headexplode':
-        return [this.PredefinedEmote.HEAD_EXPLODDE, 4]
+        return [this.PredefinedEmotes[15], 4]
       default:
         return [null, null]
     }
   }
 
   private getRandomEmote(): any {
-    const emotes = [
-      this.PredefinedEmote.WAVE,
-      this.PredefinedEmote.FIST_PUMP,
-      this.PredefinedEmote.ROBOT,
-      this.PredefinedEmote.RAISE_HAND,
-      this.PredefinedEmote.CLAP,
-      this.PredefinedEmote.MONEY,
-      this.PredefinedEmote.KISS,
-      this.PredefinedEmote.TIK,
-      this.PredefinedEmote.HAMMER,
-      this.PredefinedEmote.TEKTONIK,
-      this.PredefinedEmote.DONT_SEE,
-      this.PredefinedEmote.HANDS_AIR,
-      this.PredefinedEmote.SHRUG,
-      this.PredefinedEmote.DISCO,
-      this.PredefinedEmote.DAB,
-      this.PredefinedEmote.HEAD_EXPLODDE
-    ]
-    return emotes[Math.floor(Math.random() * emotes.length)]
+    return this.PredefinedEmotes[Math.floor(Math.random() * this.PredefinedEmotes.length)]
   }
 }
 

@@ -265,5 +265,22 @@ Usage:
 import { triggerEmote, PredefinedEmote } from '@decentraland/RestrictedActions'
 import { DCLConnectUIEmote } from 'dclconnect'
 
-DCLConnectUIEmote.create(triggerEmote, PredefinedEmote)
+DCLConnectUIEmote.create(triggerEmote, [
+	PredefinedEmote.WAVE,
+	PredefinedEmote.FIST_PUMP,
+	PredefinedEmote.ROBOT,
+	PredefinedEmote.RAISE_HAND,
+	PredefinedEmote.CLAP,
+	PredefinedEmote.MONEY,
+	PredefinedEmote.KISS,
+	PredefinedEmote.TIK,
+	PredefinedEmote.HAMMER,
+	PredefinedEmote.TEKTONIK,
+	PredefinedEmote.DONT_SEE,
+	PredefinedEmote.HANDS_AIR,
+	PredefinedEmote.SHRUG,
+	PredefinedEmote.DISCO,
+	PredefinedEmote.DAB,
+	PredefinedEmote.HEAD_EXPLODDE,
+])
 ```
