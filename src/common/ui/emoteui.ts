@@ -1,51 +1,89 @@
-import { triggerEmote, PredefinedEmote } from '@decentraland/RestrictedActions'
 import {
   GlobalCanvas as canvas,
   DynamicImage,
-  DynamicText,
   DynamicContainerRect,
   Wait,
   DCLConnectEase
 } from '../../index'
 
+const defaultIconImageURL: string =
+  'https://gateway.pinata.cloud/ipfs/QmV5H5evXk3fXvnvMc2YHg4iLyUTmhxgChSxnLQ5g4obyW'
+const defaultMenuImageURL: string =
+  'https://gateway.pinata.cloud/ipfs/QmaDEZvkVpsiBerEzJXW9fyjBbbg9tq7MpvbuLqY5mvcGF'
+
 const defaultOpacity = 0.5
+
+const slices = [
+  { x: 0, y: 0, w: 100, h: 50, px: 5, py: 145, name: 'spacertop' },
+  { x: 0, y: 50, w: 12, h: 250, px: 5, py: 95, name: 'spacerleft' },
+  { x: 12, y: 50, w: 75, h: 27, px: 17, py: 95, name: 'robot' },
+  { x: 12, y: 77, w: 75, h: 12, px: 17, py: 68, name: 'spacer1' },
+  { x: 12, y: 89, w: 75, h: 27, px: 17, py: 56, name: 'tik' },
+  { x: 12, y: 116, w: 75, h: 13, px: 17, py: 29, name: 'spacer2' },
+  { x: 12, y: 129, w: 75, h: 27, px: 17, py: 16, name: 'tektonik' },
+  { x: 12, y: 156, w: 75, h: 13, px: 17, py: -11, name: 'spacer3' },
+  { x: 12, y: 169, w: 75, h: 27, px: 17, py: -24, name: 'disco' },
+  { x: 12, y: 196, w: 75, h: 13, px: 17, py: -51, name: 'spacer4' },
+  { x: 12, y: 209, w: 75, h: 27, px: 17, py: -64, name: 'handsair' },
+  { x: 12, y: 236, w: 75, h: 13, px: 17, py: -91, name: 'spacer5' },
+  { x: 12, y: 249, w: 75, h: 27, px: 17, py: -104, name: 'random' },
+  { x: 12, y: 276, w: 75, h: 24, px: 17, py: -131, name: 'spacer6' },
+  { x: 87, y: 50, w: 13, h: 250, px: 92, py: 95, name: 'spacerright' }
+]
+
+type Emote = {
+  predefined: PredefinedEmote
+}
+
+const enum PredefinedEmote {
+  WAVE = 'wave',
+  FIST_PUMP = 'fistpump',
+  ROBOT = 'robot',
+  RAISE_HAND = 'raiseHand',
+  CLAP = 'clap',
+  MONEY = 'money',
+  KISS = 'kiss',
+  TIK = 'tik',
+  HAMMER = 'hammer',
+  TEKTONIK = 'tektonik',
+  DONT_SEE = 'dontsee',
+  HANDS_AIR = 'handsair',
+  SHRUG = 'shrug',
+  DISCO = 'disco',
+  DAB = 'dab',
+  HEAD_EXPLODDE = 'headexplode'
+}
+
 /**
  * @public
  */
-export class EmoteUI {
+class EmoteUI {
   menuContainer: DynamicContainerRect
   emote: string | null = null
   icon: DynamicImage
+  iconTexture: Texture | undefined
+  menuTexture: Texture | undefined
   buttons: DynamicImage[] = []
   currentEmote: string = ''
   menuVisible: boolean = false
-  slices = [
-    //Prefix non-buttons with "spacer"
-    { x: 0, y: 0, w: 100, h: 50, px: 5, py: 145, name: 'spacertop' },
-    { x: 0, y: 50, w: 12, h: 250, px: 5, py: 95, name: 'spacerleft' },
-    { x: 12, y: 50, w: 75, h: 27, px: 17, py: 95, name: 'robot' },
-    { x: 12, y: 77, w: 75, h: 12, px: 17, py: 68, name: 'spacer1' },
-    { x: 12, y: 89, w: 75, h: 27, px: 17, py: 56, name: 'tik' },
-    { x: 12, y: 116, w: 75, h: 13, px: 17, py: 29, name: 'spacer2' },
-    { x: 12, y: 129, w: 75, h: 27, px: 17, py: 16, name: 'tektonik' },
-    { x: 12, y: 156, w: 75, h: 13, px: 17, py: -11, name: 'spacer3' },
-    { x: 12, y: 169, w: 75, h: 27, px: 17, py: -24, name: 'disco' },
-    { x: 12, y: 196, w: 75, h: 13, px: 17, py: -51, name: 'spacer4' },
-    { x: 12, y: 209, w: 75, h: 27, px: 17, py: -64, name: 'handsair' },
-    { x: 12, y: 236, w: 75, h: 13, px: 17, py: -91, name: 'spacer5' },
-    { x: 12, y: 249, w: 75, h: 27, px: 17, py: -104, name: 'random' },
-    { x: 12, y: 276, w: 75, h: 24, px: 17, py: -131, name: 'spacer6' },
-    { x: 87, y: 50, w: 13, h: 250, px: 92, py: 95, name: 'spacerright' }
-  ]
-  constructor(
-    iconTexture = 'https://gateway.pinata.cloud/ipfs/QmV5H5evXk3fXvnvMc2YHg4iLyUTmhxgChSxnLQ5g4obyW',
-    menuTexture = 'https://gateway.pinata.cloud/ipfs/QmaDEZvkVpsiBerEzJXW9fyjBbbg9tq7MpvbuLqY5mvcGF'
-    // iconTexture = 'https://pmacom.github.io/assets/danceicon.png',
-    // menuTexture = 'https://pmacom.github.io/assets/dancemenu.png'
-  ) {
-    const iconTx = new Texture(iconTexture)
-    const menuTx = new Texture(menuTexture)
+  triggerEmote: (emote: Emote) => Promise<void> | undefined
 
+  constructor(
+    iconTextureUrl: string = defaultIconImageURL,
+    menuTextureUrl: string = defaultMenuImageURL
+  ) {
+    this.iconTexture = new Texture(iconTextureUrl)
+    this.menuTexture = new Texture(menuTextureUrl)
+  }
+
+  public create(
+    triggerEmote: (emote: Emote) => Promise<void> | undefined,
+    iconTextureURL: string = defaultIconImageURL,
+    menuTextureURL: string = defaultMenuImageURL
+  ) {
+    this.iconTexture = new Texture(iconTextureURL)
+    this.menuTexture = new Texture(menuTextureURL)
+    this.triggerEmote = triggerEmote
     this.menuContainer = new DynamicContainerRect(new UIContainerRect(canvas))
     this.menuContainer.rect.hAlign = 'right'
     this.menuContainer.rect.vAlign = 'top'
@@ -53,7 +91,7 @@ export class EmoteUI {
     this.menuContainer.rect.positionY = -130
     this.menuContainer.rect.opacity = 0
 
-    this.icon = new DynamicImage(new UIImage(canvas, iconTx))
+    this.icon = new DynamicImage(new UIImage(canvas, this.iconTexture))
     this.icon.image.vAlign = 'top'
     this.icon.image.hAlign = 'right'
     this.icon.image.positionX = -60
@@ -75,9 +113,9 @@ export class EmoteUI {
       }
     })
 
-    this.slices.forEach(slice => {
+    slices.forEach(slice => {
       const part = new DynamicImage(
-        new UIImage(this.menuContainer.rect, menuTx)
+        new UIImage(this.menuContainer.rect, this.menuTexture)
       )
       part.image.sourceLeft = slice.x * 2
       part.image.sourceTop = slice.y * 2
@@ -109,7 +147,7 @@ export class EmoteUI {
     })
   }
 
-  setEmote(emote: string): void {
+  private setEmote(emote: string): void {
     let _emote
     if (emote === 'random') {
       _emote = this.getRandomEmote()
@@ -118,7 +156,7 @@ export class EmoteUI {
     }
     const emoteInfo = this.getEmoteInfo(_emote)
     if (emoteInfo[0] && emoteInfo[1]) {
-      triggerEmote({ predefined: emoteInfo[0] })
+      this.triggerEmote({ predefined: emoteInfo[0] })
       new Wait(() => {
         if (this.currentEmote === emote) {
           this.setEmote(emote)
@@ -127,7 +165,7 @@ export class EmoteUI {
     }
   }
 
-  getEmoteInfo(emote: string): [PredefinedEmote | null, number | null] {
+  private getEmoteInfo(emote: string): [PredefinedEmote | null, number | null] {
     switch (emote) {
       case 'wave':
         return [PredefinedEmote.WAVE, 3]
@@ -166,7 +204,7 @@ export class EmoteUI {
     }
   }
 
-  getRandomEmote(): PredefinedEmote {
+  private getRandomEmote(): PredefinedEmote {
     const emotes = [
       PredefinedEmote.WAVE,
       PredefinedEmote.FIST_PUMP,
@@ -188,3 +226,5 @@ export class EmoteUI {
     return emotes[Math.floor(Math.random() * emotes.length)]
   }
 }
+
+export const DCLConnectUIEmote = new EmoteUI()

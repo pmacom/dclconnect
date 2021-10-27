@@ -32,7 +32,6 @@
   "homepage": "https://github.com/pmacom/dclconnect",
   "devDependencies": {
     "@microsoft/api-extractor": "^7.13.2",
-    "decentraland-ecs": "^6.6.8",
     "glob": "^7.1.6",
     "prettier": "^1.19.1",
     "rollup": "^2.35.1",
@@ -54,9 +53,13 @@
   ],
   "peerDependencies": {
     "colyseus.js": "^0.14.12",
-    "decentraland-ecs": "^6.6.5"
+    "decentraland-ecs": "^6.6.8"
   },
   "dependencies": {
     "@dcl/ecs-scene-utils": "^1.7.5"
-  }
+  },
+  "bundleDependencies": [
+    "@dcl/ecs-scene-utils",
+    "colyseus.js"
+  ]
 }
