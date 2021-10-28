@@ -1,4 +1,4 @@
-import { map } from "../../../utils/map"
+import { dclmap } from "../../../utils/map"
 import { chars } from "./settings"
 
 let clockTexture = new Texture("https://pmacom.github.io/assets/splitFlapSprite.jpg")
@@ -11,10 +11,10 @@ clockMaterial.metallic = 0.5
 
 
 const convertPxToUV = (x: number, y: number, width: number, height: number, isFlipped?: boolean) : Array<number> => {
-    let _x = map(x, 0, 510, 0, 1)
-    let _y = map(y, 0, 1278, 0, 1)
-    let _width = map(width, 0, 510, 0, 1)
-    let _height = map(height, 0, 1278, 0, 1)
+    let _x = dclmap(x, 0, 510, 0, 1)
+    let _y = dclmap(y, 0, 1278, 0, 1)
+    let _width = dclmap(width, 0, 510, 0, 1)
+    let _height = dclmap(height, 0, 1278, 0, 1)
 
     let tr = {x: _x, y: 1-_y }
     let tl = {x: _x+_width, y: 1-_y }

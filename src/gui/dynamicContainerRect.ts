@@ -1,4 +1,4 @@
-import { Wait } from "../index"
+import { Wait } from '../common/utils/wait'
 
 /**
  * @public

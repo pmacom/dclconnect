@@ -1,10 +1,12 @@
-import {
-  GlobalCanvas as canvas,
-  DynamicImage,
-  DynamicContainerRect,
-  Wait,
-  DCLConnectEase
-} from '../../index'
+import { DynamicContainerRect } from '../../gui/dynamicContainerRect'
+// import {
+//   GlobalCanvas as canvas,
+// } from '../../index'
+
+import { Wait } from '../../common/utils/wait'
+import { DCLConnectEase } from '../../gui/ease'
+import { DynamicImage } from '../../gui/dynamicImage'
+import { GlobalCanvas as canvas } from '../../gui/canvas'
 
 const defaultIconImageURL: string =
   'https://gateway.pinata.cloud/ipfs/QmV5H5evXk3fXvnvMc2YHg4iLyUTmhxgChSxnLQ5g4obyW'

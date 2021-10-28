@@ -1,6 +1,6 @@
 {
   "name": "dclconnect",
-  "version": "0.5.13",
+  "version": "0.5.15",
   "description": "A collection of utilities and helpers for building in decentraland and connecting to dclconnect services",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -53,7 +53,7 @@
   ],
   "peerDependencies": {
     "colyseus.js": "^0.14.12",
-    "decentraland-ecs": "^6.6.8"
+    "decentraland-ecs": "^6.6.9"
   },
   "dependencies": {
     "@dcl/ecs-scene-utils": "^1.7.5"

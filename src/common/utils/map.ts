@@ -9,7 +9,7 @@
  * @returns The resulting mapped value between the new min and max
  * @public
  */
- export function map(
+ export function dclmap(
     value: number,
     min1: number,
     max1: number,
